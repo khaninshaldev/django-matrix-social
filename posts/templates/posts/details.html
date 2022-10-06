@@ -1,0 +1,17 @@
+{% extends './_base.html' %} {% block title %} Matrix - Post Details {% endblock %}
+
+{% block content %}
+
+<h1>Details of this post:</h1>
+
+<a href="{% url 'edit' post.id %}"><button>Edit post</button></a>
+<a href="{% url 'delete' post.id %}"><button>Delete</button></a>
+
+<section>
+  <article>
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.content }}</p>
+  </article>
+</section>
+
+{% endblock %}

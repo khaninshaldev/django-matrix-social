@@ -1,0 +1,18 @@
+{% extends './_base.html' %} {% block title %} Matrix - Homepage {% endblock %}
+{% block content %}
+
+<h1>Posts:</h1>
+
+<a href="{% url 'new' %}"><button>New post</button></a>
+
+<section>
+  {% for post in posts %}
+  <a href="{% url 'details' post.id %}">
+    <article>
+      <h3>{{ post.title }}</h3>
+    </article>
+  </a>
+  {% endfor %}
+</section>
+
+{% endblock %}
