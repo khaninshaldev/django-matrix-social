@@ -1,18 +1,19 @@
-{% extends './_base.html' %} {% block title %} Matrix - Homepage {% endblock %}
+{% extends '_base.html' %} {% block title %} Matrix - Homepage {% endblock %}
 {% block content %}
 
-<h1>Posts:</h1>
-
-<a href="{% url 'new' %}"><button>New post</button></a>
-
-<section>
-  {% for post in posts %}
-  <a href="{% url 'details' post.id %}">
-    <article>
-      <h3>{{ post.title }}</h3>
-    </article>
-  </a>
-  {% endfor %}
-</section>
+<section class="container">
+  <section class='row flex-column'>
+    {% for post in posts %}
+      <article onclick="location.href='{{post.id}}';" class="card col-6 mx-auto mt-4" style="cursor:pointer;">
+        <section class="card-body">
+          <h5 class="card-title">{{ post.title }} - @{{ post.author.username }} </h5>
+          <p class="card-text">{{ post.content }}</p>
+          <a href="{% url 'home' %}" class="btn btn-outline-primary">Like</a>
+          <a href="{% url 'home' %}" class="btn btn-outline-primary">Comment</a>
+        </section>
+      </article>
+    {% endfor %}
+  </section>
+</section
 
 {% endblock %}

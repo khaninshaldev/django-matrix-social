@@ -1,11 +1,13 @@
-{% extends './_base.html' %} {% block title %} Matrix - Post Details {% endblock %}
+{% extends '_base.html' %} {% block title %} Matrix - Post Details {% endblock %}
 
 {% block content %}
 
 <h1>Details of this post:</h1>
 
-<a href="{% url 'edit' post.id %}"><button>Edit post</button></a>
-<a href="{% url 'delete' post.id %}"><button>Delete</button></a>
+{% if post.author == user  %}
+<a href="{% url 'edit' post.id %}"><button class="btn btn-primary">Edit post</button></a>
+<a href="{% url 'delete' post.id %}"><button class="btn btn-danger">Delete</button></a>
+{% endif %}
 
 <section>
   <article>
